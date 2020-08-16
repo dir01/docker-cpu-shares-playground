@@ -1,0 +1,18 @@
+version: '2.1'
+services:
+
+    low_priority:
+        build:
+            context: .
+        cpu_shares: 10
+        environment: 
+            WORKERS_COUNT: ${WORKERS_COUNT:-40}
+        container_name: low_priority
+
+    high_priority:
+        build:
+            context: .
+        cpu_shares: 100
+        environment: 
+            WORKERS_COUNT: ${WORKERS_COUNT:-40}
+        container_name: high_priority
